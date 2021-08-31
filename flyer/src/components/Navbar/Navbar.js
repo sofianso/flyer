@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   AppBar,
   Tab,
@@ -9,12 +10,12 @@ import {
   Menu,
   useMediaQuery,
   useTheme,
-  Grid,
   MenuItem,
 } from "@material-ui/core";
 import { DrawerComponent } from "./DrawerComponent/DrawerComponent";
 import { MdHome } from "react-icons/md";
 import { BsCardText } from "react-icons/bs";
+import { LoginForm } from "../accountBox/LoginForm";
 
 export const Navbar = () => {
   const [value, setValue] = useState(0);
@@ -34,39 +35,49 @@ export const Navbar = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   // Breakpoints
   return (
-    <div>
-      <AppBar color="primary">
-        <Toolbar>
-          <Typography>FLYER</Typography>
+    <Router>
+      <div>
+        <AppBar color="primary">
+          <Toolbar>
+            <Typography>FLYER</Typography>
 
-          {isMatch ? (
-            <DrawerComponent />
-          ) : (
-            <>
-              {" "}
-              <Tabs
-                onChange={handleClickTab}
-                indicatorColor="secondary"
-                value={value}
-              >
-                <Tab icon={<MdHome />} disableRipple label="Home" />
+            {isMatch ? (
+              <DrawerComponent />
+            ) : (
+              <>
+                {" "}
+                <Tabs
+                  onChange={handleClickTab}
+                  indicatorColor="secondary"
+                  value={value}
+                >
+                  <Tab icon={<MdHome />} disableRipple label="Home" />
 
-                <Tab icon={<BsCardText />} disableRipple label="About" />
-              </Tabs>
-              <Button
-                aria-controls="menu"
-                disableRipple
-                onClick={handleOpenMenu}
-                variant="contained"
-                color="secondary"
-              >
-                Login
-              </Button>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-      <Menu
+                  <Tab icon={<BsCardText />} disableRipple label="About" />
+                </Tabs>
+                {/* **ISSUE**...Login cannot redirect to SignInOutContainer container */}
+                <Switch>
+                  <Route>
+                    <Link exact path to="/login">
+                      <Button
+                        to="/login"
+                        variant="contained"
+                        color="secondary"
+                        disableRipple
+                        // aria-controls="menu"
+                      >
+                        Login
+                      </Button>
+                    </Link>
+                  </Route>
+                </Switch>
+              </>
+            )}
+          </Toolbar>
+        </AppBar>
+
+        {/* Menu needs work. Disabled until further notice... */}
+        {/* <Menu
         style={{ marginTop: "35px" }}
         id="menu"
         onClose={handleCloseMenu}
@@ -76,7 +87,8 @@ export const Navbar = () => {
         <MenuItem>My Account</MenuItem>
         <MenuItem>Membership</MenuItem>
         <MenuItem>Settings</MenuItem>
-      </Menu>
-    </div>
+      </Menu> */}
+      </div>
+    </Router>
   );
 };
