@@ -2,21 +2,20 @@ import React from "react";
 import { Container, Grid, Box } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-var style = {
-  textAlign: "center",
+var styleFooter = {
   position: "fixed",
+  top: "200px",
+  padding: "0px",
+  margin: "0px",
   left: "0",
-  bottom: "0",
-  height: "20rem",
   width: "100%",
-  fontSize: "1.5rem",
-  fontWeight: "bold",
+  fontSize: "1rem",
 };
 
 export const Footer = () => {
   return (
     <div>
-      <div style={style}>
+      <div style={styleFooter}>
         <footer>
           <Box
             px={{ xs: 3, sm: 10 }}
@@ -46,50 +45,38 @@ export const Footer = () => {
                         Privacy
                       </Link>
                     </Box>
-                  </Router>
-                </Grid>
-
-                <Grid item xs={12} sm={6} md={3}>
-                  <Box borderBottom={1}>Help</Box>
-                  <Router>
-                    <Box>
-                      <Link href="/" color="inherit">
-                        Contact
-                      </Link>
-                    </Box>
 
                     <Box>
                       <Link href="/" color="inherit">
-                        About Us
-                      </Link>
-                    </Box>
-
-                    <Box>
-                      <Link href="/" color="inherit">
-                        Privacy
+                        FAQs
                       </Link>
                     </Box>
                   </Router>
                 </Grid>
 
                 <Grid item xs={12} sm={6} md={3}>
-                  <Box borderBottom={1}>Terms & Conditions </Box>
+                  <Box borderBottom={1}>Follow Us </Box>
                   <Router>
                     <Box>
                       <Link href="/" color="inherit">
-                        Contact
+                        Facebook
                       </Link>
                     </Box>
 
                     <Box>
                       <Link href="/" color="inherit">
-                        About Us
+                        Instagram
                       </Link>
                     </Box>
 
                     <Box>
                       <Link href="/" color="inherit">
-                        Privacy
+                        Twitter
+                      </Link>
+                    </Box>
+                    <Box>
+                      <Link href="/" color="inherit">
+                        LinkedIn
                       </Link>
                     </Box>
                   </Router>

@@ -1,26 +1,46 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navbar } from "./components/Navbar/Navbar";
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { BottomNavigation, ThemeProvider } from "@material-ui/core";
-import { theme } from "./utils/theme";
+
+import "./styles.css";
+import { Home } from "./pages/Home";
+import { Contact } from "./pages/Contact";
+import { About } from "./pages/About";
 import { SignInOutContainer } from "./containers/SignInOutContainer";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <div>
-          <ThemeProvider theme={theme}>
-            <Navbar />
-          </ThemeProvider>
-        </div>
-        <BottomNavigation>
-          <Footer />
-        </BottomNavigation>
-      </div>
-    );
-  }
-}
+import { Route, Switch } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 
-export default App;
+const useStyles = makeStyles({});
+
+export default function App() {
+  const classes = useStyles();
+  return (
+    <div>
+      <div className={classes.container}>
+        <Navbar />
+        <Switch>
+          <Route exact from="/" render={(props) => <Home {...props} />} />
+          <Route
+            exact
+            path="/contact"
+            render={(props) => <Contact {...props} />}
+          />
+          <Route exact path="/about" render={(props) => <About {...props} />} />
+          <Route
+            exact
+            path="/login"
+            render={(props) => <SignInOutContainer {...props} />}
+          />
+        </Switch>
+
+        <div className="footer">
+          <BottomNavigation position="static">
+            <Footer />
+          </BottomNavigation>
+        </div>
+      </div>
+    </div>
+  );
+}
