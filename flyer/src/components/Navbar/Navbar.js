@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    backgroundColor: "blue",
   },
   title: {
     [theme.breakpoints.down("xs")]: {
@@ -131,6 +132,14 @@ const Navbar = (props) => {
                 onClick={() => handleButtonClick("/contact")}
               >
                 CONTACT
+              </Button>
+              <Button
+                variant="contained"
+                disableRipple
+                color="secondary"
+                onClick={() => handleButtonClick("/membership")}
+              >
+                Membership
               </Button>
               <Button
                 variant="contained"
