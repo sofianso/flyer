@@ -16,19 +16,6 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { Footer } from "../Footer/Footer";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   "@global": {
     ul: {
@@ -126,7 +113,7 @@ export default function Pricing() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar
+      {/* <AppBar
         position="static"
         color="default"
         elevation={0}
@@ -176,7 +163,7 @@ export default function Pricing() {
             Login
           </Button>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography

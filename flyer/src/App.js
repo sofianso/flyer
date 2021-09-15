@@ -1,34 +1,46 @@
 import React, { useState } from "react";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import memberships from "./api/memberships";
-import Membership from "./components/Membership/Membership";
 import Cart from "./components/Cart/Cart";
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
-import Home from "./pages/Home";
 
 import Navbar from "./components/Navbar/Navbar";
-import { Footer } from "./components/Footer/Footer";
-import { BottomNavigation } from "@material-ui/core";
+import Home from "./pages/Home";
 import { Contact } from "./pages/Contact";
 import { About } from "./pages/About";
+import Membership from "./components/Membership/Membership";
 import { SignInOutContainer } from "./containers/SignInOutContainer";
+import { Footer } from "./components/Footer/Footer";
 
 // Stripe Payment
 import { loadStripe } from "@stripe/stripe-js";
 
 import { Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import "./styles.css";
+import Profile from "./pages/Profile";
+import { Height } from "@material-ui/icons";
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    position: "relative",
+    minHeight: "100vh",
+  },
+  footerContainer: {
+    backgroundColor: "blue",
+    bottom: 0,
+    position: "static",
+    height: "2.5rem",
+  },
+}));
 
 const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
 
 export default function App() {
-  const navbar = useStyles();
+  const classes = useStyles();
   return (
     <div>
-      <div className={navbar.container}>
+      <div className={classes.root}>
         <Navbar />
         <Switch>
           <Route exact from="/" render={(props) => <Home {...props} />} />
@@ -43,6 +55,11 @@ export default function App() {
             path="/membership"
             render={(props) => <Membership {...props} />}
           />
+          <Route
+            exact
+            path="/profile"
+            render={(props) => <Profile {...props} />}
+          />
 
           <Route
             exact
@@ -51,7 +68,9 @@ export default function App() {
           />
         </Switch>
       </div>
-      <Footer />
+      <div className={classes.footerContainer}>
+        <Footer />
+      </div>
     </div>
   );
 }

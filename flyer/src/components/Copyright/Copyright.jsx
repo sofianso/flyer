@@ -4,11 +4,9 @@ import { Typography } from "@material-ui/core";
 
 export const Copyright = () => {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="inherit" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
+      Flyer&nbsp;
       {new Date().getFullYear()}
       {"."}
     </Typography>

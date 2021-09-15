@@ -13,19 +13,6 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-export const Copyright = () => {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Home © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-};
-
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -122,10 +109,6 @@ export default function Home() {
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}>
-              {/* Copyright is here */}
-              <Copyright />
-            </Box>
           </form>
         </div>
       </Grid>

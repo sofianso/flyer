@@ -17,7 +17,17 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: "blue",
+  },
+  navbarButton: {
+    fontSize: "1rem",
+    border: "none",
+    backgroundColor: "none",
+    outline: "none",
+    color: "inherit",
+    "&:hover": {
+      backgroundColor: "#fff",
+      color: "#3c52b2",
+    },
   },
   title: {
     [theme.breakpoints.down("xs")]: {
@@ -33,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Navbar = (props) => {
-  const { history } = props;
   const classes = useStyles();
+  const { history } = props;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
@@ -79,6 +89,8 @@ const Navbar = (props) => {
           <Typography variant="h6" className={classes.title}>
             FLYER
           </Typography>
+
+          {/* responsive design for Navbar starts here */}
           {isMobile ? (
             <>
               <IconButton
@@ -116,44 +128,46 @@ const Navbar = (props) => {
               </Menu>
             </>
           ) : (
+            // response design for Navbar ends here
+
             <div className={classes.headerOptions}>
               <Button
-                variant="contained"
+                className={classes.navbarButton}
+                variant="outlined"
                 disableRipple
-                color="secondary"
                 onClick={() => handleButtonClick("/")}
               >
                 HOME
               </Button>
               <Button
-                variant="contained"
+                className={classes.navbarButton}
+                variant="outlined"
                 disableRipple
-                color="secondary"
                 onClick={() => handleButtonClick("/contact")}
               >
                 CONTACT
               </Button>
               <Button
-                variant="contained"
+                className={classes.navbarButton}
+                variant="outlined"
                 disableRipple
-                color="secondary"
                 onClick={() => handleButtonClick("/membership")}
               >
                 Membership
               </Button>
               <Button
-                variant="contained"
+                className={classes.navbarButton}
+                variant="outlined"
                 disableRipple
-                color="secondary"
                 onClick={() => handleButtonClick("/about")}
               >
                 ABOUT
               </Button>
 
               <Button
-                variant="contained"
+                className={classes.navbarButton}
+                variant="outlined"
                 disableRipple
-                color="secondary"
                 onClick={() => handleButtonClick("/login")}
               >
                 Login
