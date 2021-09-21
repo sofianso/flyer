@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "200px",
   },
   footer: {
-    position: "absolsute",
+    position: "static",
     padding: theme.spacing(3, 2),
     backgroundColor:
       theme.palette.type === "light"
