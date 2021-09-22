@@ -7,7 +7,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import StarIcon from "@material-ui/icons/StarBorder";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
@@ -53,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(8, 0, 6),
   },
   cardGrid: {
-    backgroundColor: "red",
+    margin: theme.spacing(2, 0, 5, 0),
   },
   cardHeader: {
     backgroundColor:
@@ -79,14 +78,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 // needs to be moved to data folder
 const tiers = [
   {
-    title: "Free",
+    title: "Basic",
     price: "0",
     description: [
-      "10 users included",
-      "2 GB of storage",
+      "Up to 5 links",
+      "1 Resume",
+      "Ads",
       "Help center access",
       "Email support",
     ],
@@ -95,29 +96,17 @@ const tiers = [
   },
   {
     title: "Premium",
-    subheader: "Most popular",
     price: "15",
     description: [
-      "20 users included",
-      "10 GB of storage",
+      "Unlimited links",
+      "1 Resume",
+      "Custom fonts and themes",
       "Help center access",
       "Priority email support",
     ],
     buttonText: "Get started",
     buttonVariant: "contained",
   },
-  // {
-  //   title: "Enterprise",
-  //   price: "30",
-  //   description: [
-  //     "50 users included",
-  //     "30 GB of storage",
-  //     "Help center access",
-  //     "Phone & email support",
-  //   ],
-  //   buttonText: "Contact us",
-  //   buttonVariant: "outlined",
-  // },
 ];
 
 export default function Pricing() {
@@ -210,7 +199,7 @@ export default function Pricing() {
               key={tier.title}
               xs={12}
               sm={tier.title === "Enterprise" ? 12 : 6}
-              md={4}
+              md={6}
             >
               <Card>
                 <CardHeader
@@ -218,7 +207,6 @@ export default function Pricing() {
                   subheader={tier.subheader}
                   titleTypographyProps={{ align: "center" }}
                   subheaderTypographyProps={{ align: "center" }}
-                  action={tier.title === "Premium" ? <StarIcon /> : null}
                   className={classes.cardHeader}
                 />
                 <CardContent>
