@@ -69,16 +69,16 @@ const Navbar = (props) => {
       pageURL: "/",
     },
     {
-      menuTitle: "Contact",
-      pageURL: "/contact",
-    },
-    {
-      menuTitle: "About",
-      pageURL: "/about",
+      menuTitle: "Membership",
+      pageURL: "/membership",
     },
     {
       menuTitle: "Login",
       pageURL: "/login",
+    },
+    {
+      menuTitle: "Signup",
+      pageURL: "/signup",
     },
   ];
 
@@ -139,14 +139,7 @@ const Navbar = (props) => {
               >
                 HOME
               </Button>
-              <Button
-                className={classes.navbarButton}
-                variant="outlined"
-                disableRipple
-                onClick={() => handleButtonClick("/contact")}
-              >
-                CONTACT
-              </Button>
+
               <Button
                 className={classes.navbarButton}
                 variant="outlined"
@@ -159,9 +152,9 @@ const Navbar = (props) => {
                 className={classes.navbarButton}
                 variant="outlined"
                 disableRipple
-                onClick={() => handleButtonClick("/about")}
+                onClick={() => handleButtonClick("/signup")}
               >
-                ABOUT
+                Signup
               </Button>
 
               <Button

@@ -19,6 +19,7 @@ import { Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Profile from "./pages/Profile";
 import { Height } from "@material-ui/icons";
+import { Signup } from "./pages/Signup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,6 +66,11 @@ export default function App() {
             exact
             path="/login"
             render={(props) => <SignInOutContainer {...props} />}
+          />
+          <Route
+            exact
+            path="/signup"
+            render={(props) => <Signup {...props} />}
           />
         </Switch>
       </div>
